@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { obtenerPersonas } from '../Firebase/Promesas'
 import { persona } from '../Interfaces'
 import { Link } from 'react-router-dom'
-
+import '../assets/css/tabla.css'
 
 
 export const Registros = () => {
@@ -37,14 +37,14 @@ export const Registros = () => {
   return (
     <table>
         <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Edad</th>
-            <th>Genero</th>
-            <th>Telefono</th>
-            <th>Fecha de Nacimiento</th>
-            <th>Correo</th>
-            <th>RUT</th>
+            <th> Nombre </th>
+            <th> Apellido </th>
+            <th> Edad </th>
+            <th> Genero </th>
+            <th> Telefono </th>
+            <th> Fecha de Nacimiento </th>
+            <th> Correo </th>
+            <th> RUT </th>
             
         </tr>
         {

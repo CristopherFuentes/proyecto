@@ -69,9 +69,10 @@ export const Formulario = () => {
         <br />
 
         <label> Selecciona Tu Genero: </label>
-        <select > 
+        <select onChange={(e)=>setGenero((e.target.value))}
+          value={genero}> 
         <br />
-        <label> Selecciona Tu Genero: </label>
+    
         <br />
         <option value=""></option>
         <option value="Hombre">Hombre</option>

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { persona } from '../Interfaces';
 import { useParams } from 'react-router-dom';
+import { actualizarPersona, obtenerPersona } from '../Firebase/Promesas';
 
 
 export const Actualizar = () => {
-    const [nombre, setNombre] = useState<string>('');
+      const [nombre, setNombre] = useState<string>('');
       const [apellido, setApellido] = useState<string>('');
       const [edad, setEdad] = useState<number>(0);
       const [genero, setGenero] = useState<string>('');
@@ -12,26 +13,43 @@ export const Actualizar = () => {
       const [fechanacimiento, setFechaNacimiento] = useState<string>('');
       const [correo, setCorreo] = useState<string>('');
       const [rut, setRut] = useState<string>('');
+      //const [idPersona, setIdPersona] = useState<string>('')
     
       const [errorEdad, setErrorEdad] = useState("")
 
 
       const params = useParams()
-      useEffect(()=>{
-            console.log(params)
-      },[])
+    useEffect(()=>{
+        if(params.idPersona!=undefined)
+        obtenerPersona(params.idPersona).then((p)=>{
+            if(p!=undefined){
+              setNombre(p.nombre)
+              setApellido(p.apellido)
+              setEdad(p.edad)
+              setGenero(p.genero)
+              setTelefono(p.telefono)
+              setFechaNacimiento(p.fechanacimiento)
+              setCorreo(p.correo)
+              setRut(p.rut)
+              //setIdPersona(p.idPersona)
+
+                
+
+            }
+        })
+    },[])
+
+
+
       //para validar un nombre, se tendria que recorrer nombre para verificar si tiene valor
-      const registrar = () => {
+      const actualizar = () => {
           
           if (edad>0){
-            console.log("Nombre:",nombre)
-            console.log("Apellido:",apellido)
-            console.log("Edad:",edad)
             alert("Bienvenido " + nombre + " " + apellido + " " + "Edad: " + edad)
             const p:persona = {
               nombre, apellido,edad, genero, telefono, fechanacimiento, correo, rut
           }
-
+            actualizarPersona(//idPersona,p)
           }
           
           else{
@@ -41,14 +59,14 @@ export const Actualizar = () => {
       return(
   //Formulario
     <form>
-        <p>Registrate</p>
+       <p>Registrate</p>
         <br />
 
         <label>Nombre: </label>
         <input type="text" 
           onChange={(e)=>setNombre(e.target.value)}
           value={nombre}
-        />
+          />
         
         <br />
 
@@ -70,9 +88,10 @@ export const Actualizar = () => {
         <br />
 
         <label> Selecciona Tu Genero: </label>
-        <select > 
+        <select onChange={(e)=>setGenero((e.target.value))}
+          value={genero}> 
         <br />
-        <label> Selecciona Tu Genero: </label>
+    
         <br />
         <option value=""></option>
         <option value="Hombre">Hombre</option>
@@ -113,8 +132,7 @@ export const Actualizar = () => {
         
         <br />
 
-        <button onClick={registrar} type="button">Registrar</button>
-
+        <button onClick={actualizar} type="button">Actualizar</button>
 
     
       
