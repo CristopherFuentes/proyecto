@@ -13,7 +13,7 @@ export const Actualizar = () => {
       const [fechanacimiento, setFechaNacimiento] = useState<string>('');
       const [correo, setCorreo] = useState<string>('');
       const [rut, setRut] = useState<string>('');
-      //const [idPersona, setIdPersona] = useState<string>('')
+      const [idPersona, setIdPersona] = useState<string>('')
     
       const [errorEdad, setErrorEdad] = useState("")
 
@@ -31,7 +31,7 @@ export const Actualizar = () => {
               setFechaNacimiento(p.fechanacimiento)
               setCorreo(p.correo)
               setRut(p.rut)
-              //setIdPersona(p.idPersona)
+              setIdPersona(p.idPersona!)
 
                 
 
@@ -47,9 +47,9 @@ export const Actualizar = () => {
           if (edad>0){
             alert("Bienvenido " + nombre + " " + apellido + " " + "Edad: " + edad)
             const p:persona = {
-              nombre, apellido,edad, genero, telefono, fechanacimiento, correo, rut
+              nombre, apellido, edad, genero, telefono, fechanacimiento, correo, rut
           }
-            actualizarPersona(//idPersona,p)
+           actualizarPersona(idPersona,p)
           }
           
           else{

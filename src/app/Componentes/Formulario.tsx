@@ -40,7 +40,8 @@ export const Formulario = () => {
     return(
 //Formulario
     <form>
-        <p>Registrate</p>
+        <p>Formulario de Inscripción</p>
+        
         <br />
 
         <label>Nombre: </label>

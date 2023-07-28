@@ -1,6 +1,15 @@
-table, th, td {
-    border: 1px solid aqua;
+/* table, th, td, tr{
+    border: 1px solid aquamarine;
     border-collapse: collapse;
+    width: 50%;
+    text-align: center;
+} */
+
+th, td {
     
-}
+    padding: 7px 7px 7px 7px;
+    border-bottom: 1px solid #ddd;
+  }
+
+
 

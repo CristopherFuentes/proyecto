@@ -1,0 +1,10 @@
+.foto{
+    width: 600px;
+    height: 330px;
+}
+.foto1{
+    width: 300px;
+    height: 330px;
+    justify-content: center;
+    text-align: center;
+}
